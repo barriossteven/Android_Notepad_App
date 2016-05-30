@@ -26,6 +26,7 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 noteName.setText("save was clicked");
+                //yess
             }
         });
 
