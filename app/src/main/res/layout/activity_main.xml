@@ -10,4 +10,36 @@
     tools:context="com.example.barrios.notepad.MainActivity">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="My Notes"
+        android:id="@+id/Title"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ListOfNotes"
+        android:layout_below="@+id/Title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="42dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="new note"
+        android:id="@+id/addbutton"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/Title"
+        android:layout_toEndOf="@+id/Title"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp" />
 </RelativeLayout>
