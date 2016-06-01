@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView LVnotes;
     ArrayList<String> ListOfNotes;
-    private Button newNote;
+
     public static final String MyPREFERENCES = "myPref";
     public static final String JsonKey = "jsonData";
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         LVnotes = (ListView)findViewById(R.id.ListOfNotes);
         ListOfNotes = new ArrayList<String>();
-        newNote = (Button)findViewById(R.id.addbutton);
+
 
         try {
             getNotes();
@@ -48,13 +50,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 displayNote(position);
-            }
-        });
-
-        newNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               newNote();
             }
         });
 
@@ -122,5 +117,23 @@ public class MainActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_activity,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.action_add:
+                newNote();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
